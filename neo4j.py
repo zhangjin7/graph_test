@@ -52,4 +52,4 @@ class Neo_GraphDB:
 if __name__=="__main__":
     # 从数据库添加节点和关系用 add_data,从图数据库推断出关系用infer_rel方法
     Neo_GraphDB.add_data("daughter_rel")
-    Neo_GraphDB.infer_rel("Relamarriage")
+    Neo_GraphDB.infer_rel("relatives_by_marriage")
