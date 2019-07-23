@@ -1,6 +1,6 @@
 import configparser
 from py2neo import Graph,Node,Relationship,NodeMatcher,Subgraph
-from person_rel_graph.datasource import GreenPlum_Datasource
+from datasource import GreenPlum_Datasource
 
 class Neo_GraphDB:
     def __init__(self):
