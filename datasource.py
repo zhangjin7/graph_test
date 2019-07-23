@@ -4,7 +4,7 @@ import configparser
 class GreenPlum_Datasource:
     def __init__(self):
         self.conf=configparser.ConfigParser()
-        self.conf.read("properties.conf",encoding="utf-8")
+        self.conf.read("properties.ini",encoding="utf-8")
         self.host=self.conf.get("datasource","host")
         self.port=self.conf.get("datasource","port")
         self.user=self.conf.get("datasource","user")

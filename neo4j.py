@@ -6,7 +6,7 @@ class Neo_GraphDB:
     def __init__(self):
         self.graph=Graph("http://192.168.110.47:7474",auth=("neo4j","passwd"))
         self.conf=configparser.ConfigParser()
-        self.conf.read("properties.conf",encoding="utf-8")
+        self.conf.read("properties.ini",encoding="utf-8")
 
     @staticmethod
     def add_data(data_type):
