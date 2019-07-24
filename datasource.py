@@ -1,6 +1,7 @@
 import psycopg2
 import configparser
 
+#greenplum或者postgresql
 class GreenPlum_Datasource:
     def __init__(self,path):
         self.conf=configparser.ConfigParser()
