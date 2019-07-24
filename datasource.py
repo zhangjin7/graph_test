@@ -2,9 +2,9 @@ import psycopg2
 import configparser
 
 class GreenPlum_Datasource:
-    def __init__(self):
+    def __init__(self,path):
         self.conf=configparser.ConfigParser()
-        self.conf.read("properties.ini",encoding="utf-8")
+        self.conf.read(path,encoding="utf-8")
         self.host=self.conf.get("datasource","host")
         self.port=self.conf.get("datasource","port")
         self.user=self.conf.get("datasource","user")
@@ -25,7 +25,7 @@ class GreenPlum_Datasource:
         self.conn.close()
 
 if __name__=="__main__":
-    ds=GreenPlum_Datasource()
+    ds=GreenPlum_Datasource("conf/family_graph.ini")
     result=ds.get_data("daughter_rel")
     print(result)
     ds.close()
