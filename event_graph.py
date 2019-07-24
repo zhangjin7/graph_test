@@ -1,5 +1,5 @@
 import configparser
-from py2neo import Graph,Node,Relationship,NodeMatcher,Subgraph
+from py2neo import Graph,Node,Subgraph
 from datasource import GreenPlum_Datasource
 
 class Event_Graph:
