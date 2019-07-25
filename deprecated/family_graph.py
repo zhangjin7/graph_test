@@ -47,5 +47,5 @@ class Family_Graph:
 if __name__=="__main__":
     # 添加节点add_node("节点名"),通过配置的sql和cql添加用add_data("数据类型"),从图数据库推断出关系用infer_rel("关系名")方法
     # Family_Graph.add_node("person")
-    Family_Graph.add_data("person")
+    Family_Graph.add_data("test")
     # Family_Graph.infer_rel("relatives_by_marriage")

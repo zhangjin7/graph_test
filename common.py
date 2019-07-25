@@ -59,6 +59,6 @@ class Neo4j_Graph:
         self.graph.run(self.conf.get("infer",infer_type))
 
 if __name__=="__main__":
-    g=Neo4j_Graph("conf/common.ini")
-    g.add_data("test_rel")
+    g=Neo4j_Graph("conf/family_graph.ini")
+    g.add_data("person")
     # g.infer_rel("relation")
