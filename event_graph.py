@@ -27,7 +27,7 @@ class Event_Graph:
         tx.commit()
 
     @staticmethod
-    def add_relation(data_type,path="conf/event_graph.ini"):
+    def add_data(data_type,path="conf/event_graph.ini"):
         neo = Event_Graph(path)
         ds = GreenPlum_Datasource(path)
         results=ds.get_data(data_type)
@@ -36,13 +36,14 @@ class Event_Graph:
         cql=cql_parser[0]
         position=cql_parser[1]
         for result in results:
-            # neo.graph.run("MATCH (p:Person),(q:Person) WHERE p.电话号码={0} AND q.电话号码={1} MERGE (p)-[r:通话]->(q)".format(result[0],result[1]))
+            # print(r"MERGE (n:Person {{身份证号: \"{1}\"}}) on create set n.姓名=\"{0}\",n.身份证号=\"{1}\",n.性别=\"{2}\",n.电话号码=\"{3}\"".format(
+            #         result[0], result[1], result[2], result[3]))
             eval("neo.graph.run(\""+cql+"\".format("+position+"))")
         ds.close()
 
 if __name__=="__main__":
-    # 从数据库添加节点add_node("节点名"),添加关系用add_relation("关系名")
-    Event_Graph.add_relation("tongxing")
+    # 添加节点add_node("节点名"),通过配置的sql和cql添加用add_data("数据类型")
+    Event_Graph.add_data("person")
     # Event_Graph.add_node("person")
 
 

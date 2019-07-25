@@ -27,7 +27,7 @@ class Family_Graph:
         tx.commit()
 
     @staticmethod
-    def add_relation(data_type,path="conf/family_graph.ini"):
+    def add_data(data_type,path="conf/family_graph.ini"):
         neo = Family_Graph(path)
         ds = GreenPlum_Datasource(path)
         results=ds.get_data(data_type)
@@ -36,7 +36,6 @@ class Family_Graph:
         cql=cql_parser[0]
         position=cql_parser[1]
         for result in results:
-            # neo.graph.run("MATCH (p:Person),(q:Person) WHERE p.电话号码={0} AND q.电话号码={1} MERGE (p)-[r:通话]->(q)".format(result[0],result[1]))
             eval("neo.graph.run(\""+cql+"\".format("+position+"))")
         ds.close()
 
@@ -46,7 +45,7 @@ class Family_Graph:
         neo.graph.run(neo.conf.get("infer",infer_type))
 
 if __name__=="__main__":
-    # 从数据库添加节点add_node("节点名"),添加关系用add_relation("关系名"),从图数据库推断出关系用infer_rel("关系名")方法
+    # 添加节点add_node("节点名"),通过配置的sql和cql添加用add_data("数据类型"),从图数据库推断出关系用infer_rel("关系名")方法
     # Family_Graph.add_node("person")
-    Family_Graph.add_relation("husband_rel")
+    Family_Graph.add_data("person")
     # Family_Graph.infer_rel("relatives_by_marriage")
