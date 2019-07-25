@@ -60,5 +60,5 @@ class Neo4j_Graph:
 
 if __name__=="__main__":
     g=Neo4j_Graph("conf/family_graph.ini")
-    g.add_data("person")
+    g.add_data("husband_rel")
     # g.infer_rel("relation")
